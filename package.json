@@ -1,0 +1,30 @@
+{
+  "name": "solar-chart",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "scrape": "node --experimental-specifier-resolution=node --loader ts-node/esm ./scripts/scrapeSolarFusion.ts",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "chart.js": "^3.7.1",
+    "vue": "^3.2.33",
+    "vue-chartjs": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^17.0.33",
+    "@types/yargs": "^17.0.10",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "node-fetch": "^3.2.4",
+    "sass": "^1.51.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.34.13",
+    "yargs": "^17.5.0"
+  }
+}

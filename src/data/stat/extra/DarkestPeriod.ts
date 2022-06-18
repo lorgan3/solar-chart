@@ -29,12 +29,16 @@ export const darkestPeriod: Stat<DarkestPeriodResult> = {
         value.day = day;
       }
     } else if (totalProduced < Number.EPSILON) {
+      value.day = undefined;
       const previousDay = value.currentPeriod[value.currentPeriod.length - 1];
       if (
         !previousDay ||
         day.date.getTime() - previousDay.getTime() > 60 * 60 * 24 * 1000
       ) {
         value.currentPeriod.push(day.date);
+        if (value.currentPeriod.length > value.worstPeriod.length) {
+          value.worstPeriod = value.currentPeriod;
+        }
       } else {
         if (value.worstPeriod.length < value.currentPeriod.length) {
           value.worstPeriod = value.currentPeriod;

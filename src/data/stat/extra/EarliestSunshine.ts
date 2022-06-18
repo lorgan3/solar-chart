@@ -1,3 +1,5 @@
+import { format } from "../../../util/Date";
+import { formatPower } from "../../../util/Formatter";
 import Day from "../../Day";
 import { Stat } from "../DayAccumulator";
 
@@ -43,5 +45,14 @@ export const earliestSunshine: Stat<EarliestSunshineResult> = {
     hour: value.hour,
     amount: value.amount,
     day: value.day ? Day.deserialize(value.day) : undefined,
+  }),
+  getOption: (value) => ({
+    title: "Earliest sunshine",
+    day: value.day,
+    description: `${format(
+      value.day!.date
+    )} was the day with the earliest sunshine, producing ${formatPower(
+      value.amount
+    )} between ${value.hour}-${value.hour + 1}h.`,
   }),
 };

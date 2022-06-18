@@ -1,3 +1,4 @@
+import { format } from "../../../util/Date";
 import Day from "../../Day";
 import { Stat } from "../DayAccumulator";
 
@@ -32,5 +33,13 @@ export const sunniestDay: Stat<SunniestDayResult> = {
   deserialize: (value) => ({
     value: value.value,
     day: value.day ? Day.deserialize(value.day) : undefined,
+  }),
+  getOption: (value) => ({
+    title: "Sunniest day",
+    day: value.day,
+    description: `${format(
+      value.day!.date
+    )} was the day with the highest production`,
+    focus: "input",
   }),
 };

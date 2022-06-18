@@ -2,11 +2,19 @@ import { formatMonthYear } from "../../util/Date";
 import Accumulator from "../Accumulator";
 import Day, { DataKeys, StatKeys } from "../Day";
 
+export interface Option {
+  day?: Day;
+  title: string;
+  description?: string;
+  focus?: "input" | "output";
+}
+
 export interface Stat<T, O = any> {
   key: string;
   comparator: (day: Day, previousResult: T | null) => T;
   serialize(result: T): O;
   deserialize(obj: O): T;
+  getOption?: (result: T) => Option;
 }
 
 interface StatWithMemory<T> extends Stat<T> {

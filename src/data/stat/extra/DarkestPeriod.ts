@@ -1,3 +1,4 @@
+import { format } from "../../../util/Date";
 import Day from "../../Day";
 import { Stat } from "../DayAccumulator";
 
@@ -56,4 +57,19 @@ export const darkestPeriod: Stat<DarkestPeriodResult> = {
     currentPeriod: value.currentPeriod,
     day: value.day ? Day.deserialize(value.day) : undefined,
   }),
+  getOption: (value) => {
+    const title = value.day ? "Darkest day" : "Darkest period";
+    const description = value.day
+      ? `${format(value.day.date)} was the darkest day`
+      : `${format(value.worstPeriod[0])} - ${format(
+          value.worstPeriod[value.worstPeriod.length - 1]
+        )} was the darkest period`;
+
+    return {
+      title,
+      day: value.day,
+      description,
+      focus: "input",
+    };
+  },
 };

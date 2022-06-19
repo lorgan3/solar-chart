@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "scrape": "node --experimental-specifier-resolution=node --loader ts-node/esm ./scripts/scrapeSolarFusion.ts",
+    "scrape": "node --experimental-specifier-resolution=node --loader ts-node/esm ./scripts/scrape.ts",
     "tsc": "tsc"
   },
   "dependencies": {

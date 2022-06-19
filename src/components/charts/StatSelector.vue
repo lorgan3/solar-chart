@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import DayAccumulator, { Option } from "../../data/stat/DayAccumulator";
+import DayAccumulator from "../../data/stat/DayAccumulator";
+import type { Option } from "../../data/stat/DayAccumulator";
 
 import DayChart from "./DayChart.vue";
 import Header from "../Header.vue";
